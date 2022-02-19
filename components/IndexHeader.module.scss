@@ -1,0 +1,28 @@
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1f;
+}
+
+.header-left .header-center .header-right{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.header-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    border-radius: 50%;
+}
+
+.button-left-container .button-right-container {
+    padding: 0.5rem;
+    background-color: white;
+}

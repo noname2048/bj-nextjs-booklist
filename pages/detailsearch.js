@@ -1,3 +1,4 @@
+import Router from "next/router";
 import styles from "../styles/Home.module.scss";
 
 export default function Page() {

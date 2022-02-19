@@ -1,11 +1,21 @@
+import Link from "next/link";
+import Router from "next/router";
 import styles from "../styles/Home.module.scss";
 
 export default function Page() {
   return (
     <div className={styles.container}>
-      <button>back</button>
+      <Link href="/">
+        <a>home</a>
+      </Link>
       <div className={styles.navigation}>
-        <input type="text" />
+        <span>title</span>
+        <input
+          type="text"
+          onKeyPress={(event) => {
+            if (event.key == "Enter") Router.push("/titlesearch");
+          }}
+        />
         <span>button</span>
       </div>
       <div className={styles["list-container"]}>

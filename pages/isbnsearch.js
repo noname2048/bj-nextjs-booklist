@@ -5,6 +5,7 @@ export default function Page() {
     <div className={styles.container}>
       <button>back</button>
       <div className={styles.navigation}>
+        <span>isbn</span>
         <input type="text" />
         <span>button</span>
       </div>

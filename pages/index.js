@@ -1,10 +1,12 @@
 import Head from "next/head";
-import Image from "next/image";
+import Router from "next/router";
 import styles from "../styles/Home.module.scss";
+import IndexHeader from "../components/IndexHeader";
 
 export default function Home() {
   return (
     <div className={styles.container}>
+      <IndexHeader></IndexHeader>
       <div className={styles.compact}>
         <Head>
           <title>MyBooks</title>
@@ -26,7 +28,14 @@ export default function Home() {
             <h2>
               <span>제목</span>으로 검색하기
             </h2>
-            <input type="text" name="" id="" />
+            <input
+              type="text"
+              name=""
+              id=""
+              onKeyPress={(event) => {
+                if (event.key == "Enter") Router.push("/titlesearch");
+              }}
+            />
           </div>
           <div>
             <h2>
