@@ -6,24 +6,14 @@ import { MdOutlineLocatior } from "react-icons/md";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <IndexHeader></IndexHeader>
-      <div className={styles.compact}>
-        <Head>
-          <title>MyBooks</title>
-          <meta
-            name="description"
-            content="you can display your books in home"
-          />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <header className={styles.header}>
-          <logo className={styles.logo}>MyBooks</logo>
-          <ul className={styles.centerButton}>
-            <li className={styles.left}>Search</li>
-            <li className={styles.right}>Request</li>
-          </ul>
-        </header>
+    <>
+      <Head>
+        <title>MyBooks</title>
+        <meta name="description" content="you can display your books in home" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.container}>
+        <IndexHeader />
         <div className={styles.main}>
           <div>
             <h2>
@@ -53,6 +43,6 @@ export default function Home() {
           <p>nextjs + fastapi</p>
         </footer>
       </div>
-    </div>
+    </>
   );
 }

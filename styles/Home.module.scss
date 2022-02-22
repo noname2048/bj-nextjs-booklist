@@ -1,68 +1,39 @@
 .container {
-  background-color: orange;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center
-}
-.compact {
-  background-color: gray;
-  padding: 10%;
-  width: 100%;
-  max-width: 1400px;
-  min-width: 1000px;
-  max-height: 1200px;
-}
-.header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // display: flex;
+  // flex-flow: column nowrap;
+  // justify-content: center;
+  // align-items: center;
 
-  ul {
-    text-decoration: none;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-
-    li {
-      padding: .2rem;
-      
-    }
-  }
+  background-color: #d8d2cb;
+  border-radius: 2rem;
+  overflow: hidden;
 }
 .main {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-.logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  min-height: 400px;
 
-  margin: 1rem;
-}
-.left {
-  border-radius: 0.5rem 0 0 0.5rem;
-  background-color: aqua;
-}
-.right {
-  border-radius: 0 .5rem .5rem 0;
-  background-color: aquamarine;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+
+  div:nth-child(1) {
+    background-color: #74959a;
+  }
+
+  div:nth-child(2) {
+    background-color: #98b4aa;
+  }
 }
 .detail-search {
+  min-height: 100px;
+
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: center;
+  align-items: center;
 }
 
 .footer {
-  
+  padding: 1rem;
+  background-color: #F1E0AC;
 }
-
