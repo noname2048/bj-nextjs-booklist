@@ -5,6 +5,7 @@ import { GiBlackBook } from "react-icons/gi";
 import { SiGithub } from "react-icons/si";
 import { useState } from "react";
 import classNames from "classnames/bind";
+import Link from "next/link";
 
 var cx = classNames.bind(styles);
 
@@ -25,13 +26,15 @@ export default function IndexHeader() {
           <BiSearch />
           search
         </div>
-        <div
-          onClick={() => setTabname("request")}
-          className={cx({ on: tabname === "request" })}
-        >
-          <BsFillFilePlusFill />
-          request
-        </div>
+        <Link href="/newrequest">
+          <a
+            onClick={() => setTabname("request")}
+            className={cx({ on: tabname === "request" })}
+          >
+            <BsFillFilePlusFill />
+            request
+          </a>
+        </Link>
       </div>
       <SiGithub />
     </div>
