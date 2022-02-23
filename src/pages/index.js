@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Router, { useRouter } from "next/router";
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 import IndexHeader from "../components/IndexHeader";
 import { MdOutlineLocatior } from "react-icons/md";
 import MainTwoSide from "../components/mainTwoSide";
