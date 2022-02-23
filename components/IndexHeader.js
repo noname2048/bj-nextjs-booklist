@@ -19,14 +19,16 @@ export default function IndexHeader() {
         MyBooks
       </logo>
       <div className={styles["toogle-tab"]}>
-        <div
-          onClick={() => setTabname("search")}
-          className={cx({ on: tabname === "search" })}
-        >
-          <BiSearch />
-          search
-        </div>
-        <Link href="/newrequest">
+        <Link href="/#search">
+          <a
+            onClick={() => setTabname("search")}
+            className={cx({ on: tabname === "search" })}
+          >
+            <BiSearch />
+            search
+          </a>
+        </Link>
+        <Link href="/#newrequest">
           <a
             onClick={() => setTabname("request")}
             className={cx({ on: tabname === "request" })}
