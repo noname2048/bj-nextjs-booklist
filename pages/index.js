@@ -8,8 +8,8 @@ import NewBookRequest from "../components/newBookRequest";
 
 export default function Home() {
   const hash = useRouter().asPath.match(/#([a-z0-9-_]+)/gi);
-  let h;
-  if (hash.length > 0) {
+  let h = null;
+  if (hash?.length > 0) {
     h = hash[0];
   } else {
     h = null;
@@ -24,9 +24,13 @@ export default function Home() {
       </Head>
       <div className={styles.container}>
         <IndexHeader />
-        {h === "" ? <MainTwoSide /> : null}
-        {h === "#search" ? <MainTwoSide /> : null}
-        {h === "#newrequest" ? <NewBookRequest /> : null}
+        {h === "#search" ? (
+          <MainTwoSide />
+        ) : h === "#newrequest" ? (
+          <NewBookRequest />
+        ) : (
+          <MainTwoSide />
+        )}
         <div className={styles["detail-search"]}>상세 검색하기</div>
         <footer className={styles.footer}>
           <p>@ 2022</p>{" "}
