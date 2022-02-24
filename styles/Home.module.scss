@@ -8,22 +8,7 @@
   border-radius: 2rem;
   overflow: hidden;
 }
-.main {
-  min-height: 400px;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: stretch;
-  align-items: stretch;
-
-  div:nth-child(1) {
-    background-color: #74959a;
-  }
-
-  div:nth-child(2) {
-    background-color: #98b4aa;
-  }
-}
 .detail-search {
   min-height: 100px;
 
@@ -39,44 +24,3 @@
 }
 //
 
-.newrequest {
-  min-height: 200px;
-  padding-top: 4rem;
-  gap: 0.5em;
-
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  
-  .form {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-
-    span {
-      margin-right: .5rem;
-    }
-  }
-
-  label {
-    background-color: yellow;
-    height: 2rem;
-    border-radius: 3rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    
-    padding: 0 1rem;
-    input {
-      position: relative;
-      appearance: none;
-      span {
-        position: absolute;
-        right: 0;
-      }
-    }
-  }
-}

@@ -3,8 +3,8 @@ import Router, { useRouter } from "next/router";
 import styles from "../../styles/Home.module.scss";
 import IndexHeader from "../components/IndexHeader";
 import { MdOutlineLocatior } from "react-icons/md";
-import MainTwoSide from "../components/mainTwoSide";
-import NewBookRequest from "../components/newBookRequest";
+import MainTwoSide from "../components/MainTwoSide";
+import NewBookRequest from "../components/NewBookRequest";
 
 export default function Home() {
   const hash = useRouter().asPath.match(/#([a-z0-9-_]+)/gi);

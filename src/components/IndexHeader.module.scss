@@ -1,5 +1,5 @@
 .header {
-    padding: 1rem;
+    // padding: 1rem;
     background-color: #495371;
     color: white;
 
@@ -17,6 +17,7 @@
 }
 
 .logo {
+    padding: 1.5rem;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
@@ -28,20 +29,20 @@
 
 .toogle-tab {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-around;
     gap: 0 2rem;
     background-color: #333;
     border-radius: 1rem 1rem 0 0;
     padding: 0.5rem 0.5rem 0 0.5rem;
+    align-self: flex-end;
 
-
-    div {
-        width: 6rem;
-        height: 2rem;
-        // background-color: aquamarine;
-        border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
-        border: solid 6px aquamarine;
+    a {
+        border-radius: 0.7rem 0.7rem 0rem 0rem;
+        // border: solid 6px aquamarine;
+        padding: 0 0.2rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.1rem;
 
         font-size: 1rem;
         display: flex;
@@ -49,10 +50,15 @@
         align-items: center;
         gap: 0.2rem;
         cursor: pointer;
-        
     }
     .on {
         background-color: red;
+    }
+    .search {
+        background-color: black;
+    }
+    .request {
+        background-color: black;
     }
     svg {
         font-size: 1rem;
