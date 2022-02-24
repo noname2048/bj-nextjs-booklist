@@ -28,6 +28,36 @@
     h2 span {
         color: #3700b3;
     }
+
+    label {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 0.4rem;
+
+      border: 3ps solid transparent;
+      transition: 0.01s;
+      &:focus-within {
+        border: 3px solid white;
+      }
+      background-color: rgba(255,255,255,0.5);
+      input {
+        padding: 0.2rem;
+        font-size: 1.2rem;
+        background-color: transparent;
+        border: transparent;
+        text-align: center;
+      }
+
+      input:focus {
+        outline-style: none;
+      }
+      svg {
+        cursor: pointer;
+      }
+    }
   }
 
   .newrequest {

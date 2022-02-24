@@ -5,6 +5,7 @@ import IndexHeader from "../components/IndexHeader";
 import { MdOutlineLocatior } from "react-icons/md";
 import MainTwoSide from "../components/MainTwoSide";
 import NewBookRequest from "../components/NewBookRequest";
+import { GrTarget } from "react-icons/gr";
 
 export default function Home() {
   const hash = useRouter().asPath.match(/#([a-z0-9-_]+)/gi);
@@ -31,7 +32,12 @@ export default function Home() {
         ) : (
           <MainTwoSide />
         )}
-        <div className={styles["detail-search"]}>상세 검색하기</div>
+        <div className={styles["detail-search"]}>
+          <div>
+            상세 검색하기
+            <GrTarget />
+          </div>
+        </div>
         <footer className={styles.footer}>
           <p>@ 2022</p>{" "}
           <p>해당 웹사이트는 알라딘 API를 이용하여 만들어졌습니다.</p>
