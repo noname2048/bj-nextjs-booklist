@@ -1,0 +1,47 @@
+.container {
+    margin: 1rem;
+}
+
+.navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    
+    a {
+        justify-self: flex-start;
+        align-self: center;
+    }
+}
+
+.searchbox {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+
+        padding: .4rem .5rem;
+        border: 2px solid black;
+        border-radius: 999px;
+
+        input {
+            text-align: center;
+            border: 0px solid transparent;
+        }
+        input:focus {
+            outline-style: none;
+        }
+        svg {
+            position: absolute;
+            right: 3%;
+            top: 25%;
+        }
+    }
+}
