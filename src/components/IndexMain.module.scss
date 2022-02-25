@@ -1,64 +1,68 @@
 .main {
-    min-height: 300px;
-  
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: stretch;
-    align-items: stretch;
-  
-    div:nth-child(1) {
-      background-color: #74959a;
+  min-height: 300px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+  align-items: stretch;
+
+  div:nth-child(1) {
+    background-color: #74959a;
+    
+  }
+
+  div:nth-child(2) {
+    background-color: #98b4aa;
+  }
+
+  div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    // border: 4px solid black;
+    border-radius: 0.3rem;
+    transition: none;
+    // &:hover {
+    //   filter: drop-shadow(5px 5px 10px #333);
+    // }
+  }
+
+  h2 span {
+      color: #3700b3;
+  }
+
+  label {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0 0.4rem;
+
+    border: 3px solid transparent;
+    transition: 0.01s;
+    &:focus-within {
+      border: 3px solid white;
     }
-  
-    div:nth-child(2) {
-      background-color: #98b4aa;
+    background-color: rgba(255,255,255,0.5);
+    input {
+      padding: 0.2rem;
+      font-size: 1.2rem;
+      background-color: transparent;
+      border: transparent;
+      text-align: center;
     }
 
-    div {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-
-        // border: 4px solid black;
-        border-radius: 0.3rem;
-        filter: drop-shadow(5px 5px 10px #333);
+    input:focus {
+      outline-style: none;
     }
-
-    h2 span {
-        color: #3700b3;
-    }
-
-    label {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      border-radius: 999px;
-      padding: 0 0.4rem;
-
-      border: 3px solid transparent;
-      transition: 0.01s;
-      &:focus-within {
-        border: 3px solid white;
-      }
-      background-color: rgba(255,255,255,0.5);
-      input {
-        padding: 0.2rem;
-        font-size: 1.2rem;
-        background-color: transparent;
-        border: transparent;
-        text-align: center;
-      }
-
-      input:focus {
-        outline-style: none;
-      }
-      svg {
-        cursor: pointer;
-      }
+    svg {
+      cursor: pointer;
     }
   }
+}
 
   .newrequest {
     min-height: 300px;

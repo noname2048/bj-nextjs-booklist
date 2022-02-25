@@ -8,7 +8,8 @@ import NewBookRequest from "../components/NewBookRequest";
 import { GrTarget } from "react-icons/gr";
 
 export default function Home() {
-  const hash = useRouter().asPath.match(/#([a-z0-9-_]+)/gi);
+  const router = useRouter();
+  const hash = router.asPath.match(/#([a-z0-9-_]+)/gi);
   let h = null;
   if (hash?.length > 0) {
     h = hash[0];

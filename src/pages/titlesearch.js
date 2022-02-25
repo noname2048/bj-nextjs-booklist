@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Router from "next/router";
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 
 export default function Page() {
   return (
