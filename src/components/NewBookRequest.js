@@ -20,9 +20,10 @@ export default function NewBookRequest() {
       </div>
       <button
         onClick={() => {
-          fetch("http://localhost:8000/requests", {
+          //http://localhost:8000/requests
+          fetch("http://localhost:8000/test/echo", {
             method: "POST",
-            body: { isbn: userIsbnValue },
+            body: JSON.stringify(userIsbnValue),
           }).then((res) => {
             console.log(res);
           });
