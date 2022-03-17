@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./IndexMain.module.scss";
 
 export default function NewBookRequest() {
-  const [userIsbnValue, setUserIsbnValue] = useState("");
+  const [userIsbnValue, setUserIsbnValue] = useState("9791165213190");
   return (
     <div className={styles.newrequest}>
       <h1>등록요청하기</h1>
