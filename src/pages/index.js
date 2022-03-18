@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Router, { useRouter } from "next/router";
 import styles from "../../styles/Home.module.scss";
 import IndexHeader from "../components/IndexHeader";
 import { MdOutlineLocatior } from "react-icons/md";
@@ -8,15 +7,6 @@ import NewBookRequest from "../components/NewBookRequest";
 import { GrTarget } from "react-icons/gr";
 
 export default function Home() {
-  const router = useRouter();
-  const hash = router.asPath.match(/#([a-z0-9-_]+)/gi);
-  let h = null;
-  if (hash?.length > 0) {
-    h = hash[0];
-  } else {
-    h = null;
-  }
-
   return (
     <>
       <Head>
@@ -26,13 +16,7 @@ export default function Home() {
       </Head>
       <div className={styles.container}>
         <IndexHeader />
-        {h === "#search" ? (
-          <MainTwoSide />
-        ) : h === "#newrequest" ? (
-          <NewBookRequest />
-        ) : (
-          <MainTwoSide />
-        )}
+        <MainTwoSide />
         <div className={styles["detail-search"]}>
           <div>
             상세 검색하기
