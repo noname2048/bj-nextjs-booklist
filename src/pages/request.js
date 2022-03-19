@@ -1,5 +1,6 @@
 import { useState } from "react";
 import IndexHeader from "../components/IndexHeader";
+// styles
 import styles from "./request.module.scss";
 
 export default function Page() {
@@ -28,7 +29,7 @@ export default function Page() {
             //http://localhost:8000/requests
             fetch("http://localhost:8000/test/echo", {
               method: "POST",
-              body: JSON.stringify(userIsbnValue),
+              body: JSON.stringify({ isbn: userIsbnValue }),
             }).then((res) => {
               console.log(res);
             });
