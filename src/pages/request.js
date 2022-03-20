@@ -26,12 +26,14 @@ export default function Page() {
         </div>
         <button
           onClick={() => {
+            let send = JSON.stringify({ isbn: userIsbnValue });
+            console.log(send);
             //http://localhost:8000/requests
             fetch("http://localhost:8000/test/echo", {
               method: "POST",
-              body: JSON.stringify({ isbn: userIsbnValue }),
+              body: send,
             }).then((res) => {
-              console.log(res);
+              console.log("sended");
             });
           }}
         >
