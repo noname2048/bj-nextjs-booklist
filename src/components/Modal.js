@@ -1,12 +1,14 @@
+import classNames from "classnames/bind";
 //styles
-import styles from "./Modal.modules.scss";
+import styles from "./Modal.module.scss";
 
+const cx = classNames.bind(styles);
 export default function Modal(props) {
   const { open, close, header } = props;
   return (
-    <div className={open ? "modal open" : "modal"}>
+    <div className={open ? cx("modal open") : cx("modal")}>
       {props.children}
-      <button>닫기</button>
+      <button onClick={close}>닫기</button>
     </div>
   );
 }
