@@ -37,23 +37,25 @@ export default function Page() {
         </div>
         <button
           onClick={() => {
-            fetch("http://localhost:8000/requests", {
-              headers: {
-                "Content-Type": "application/json",
-              },
-              method: "POST",
-              body: JSON.stringify({ isbn: userIsbnValue }),
-            })
-              .then((res) => {
-                console.log("등록됨");
-                setModalValue("잘되었다.");
-                setOpenModal(true);
-              })
-              .catch((error) => {
-                console.log("error");
-                setModalValue("서버와의 연결에 문제 발생.");
-                setOpenModal(true);
+            async function dataFetch() {
+              const res = await fetch("http://localhost:8000/requests", {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                method: "POST",
+                body: JSON.stringify({ isbn: userIsbnValue }),
               });
+              const jsonData = await res.json();
+              const { msg, description } = jsonData;
+              console.log(msg);
+              setModalValue(description);
+              setOpenModal(true);
+            }
+            try {
+              dataFetch();
+            } catch (err) {
+              console.log(err);
+            }
           }}
         >
           요청
