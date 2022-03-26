@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import IndexHeader from "../components/IndexHeader";
 import Modal from "../components/Modal";
 // styles
@@ -9,6 +9,7 @@ export default function Page() {
   const [openModal, setOpenModal] = useState(false);
   const [modalValue, setModalValue] = useState("");
   const [acceptedRequest, setAcceptedRequest] = useState([]);
+  const [checkboxValue, setCheckboxValue] = useState(false);
 
   return (
     <>
@@ -33,7 +34,15 @@ export default function Page() {
                 setUserIsbnValue(e.target.value);
               }}
             />
-            <span>검색</span>
+          </label>
+          <label>
+            <span>업데이트</span>
+            <input
+              type="checkbox"
+              name="update"
+              onChange={() => setCheckboxValue((prev) => !prev)}
+              checked={checkboxValue}
+            />
           </label>
         </div>
         <button
@@ -44,7 +53,10 @@ export default function Page() {
                   "Content-Type": "application/json",
                 },
                 method: "POST",
-                body: JSON.stringify({ isbn: userIsbnValue }),
+                body: JSON.stringify({
+                  isbn: userIsbnValue,
+                  update: checkboxValue,
+                }),
               });
               const jsonData = await res.json();
               if (res.status >= 400) {
@@ -53,12 +65,17 @@ export default function Page() {
                 setModalValue(description);
                 setOpenModal(true);
               } else if (res.status >= 200 && res.status < 300) {
-                const today = new Date();
-                const now = today.toLocaleDateString();
-                setAcceptedRequest((prev) => [
-                  { isbn: jsonData.isbn, time: jsonData.updated_at },
-                  ...prev,
-                ]);
+                setAcceptedRequest((prev) => {
+                  // 기존 prev에서 isbn이 같은 object를 지우고,
+                  // 추가하기
+                  let known = prev
+                    .filter((item) => item?.isbn !== jsonData.isbn)
+                    .slice(0, 5);
+                  return [
+                    { isbn: jsonData.isbn, time: jsonData.updated_at },
+                    ...known,
+                  ];
+                });
               }
             }
             try {
@@ -70,10 +87,16 @@ export default function Page() {
         >
           요청
         </button>
-        {acceptedRequest
-          ? acceptedRequest.map((item, idx) => <div key={idx}>{item}</div>)
-          : null}
       </div>
+      {acceptedRequest
+        ? acceptedRequest.map((item, idx) => (
+            <div key={idx}>
+              <span>isbn: {item?.isbn}</span>
+              <br />
+              <span>time: {item?.time}</span>
+            </div>
+          ))
+        : null}
     </>
   );
 }
