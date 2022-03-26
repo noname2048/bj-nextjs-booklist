@@ -8,6 +8,7 @@ export default function Page() {
   const [userIsbnValue, setUserIsbnValue] = useState("9791165213190");
   const [openModal, setOpenModal] = useState(false);
   const [modalValue, setModalValue] = useState("");
+  const [acceptedRequest, setAcceptedRequest] = useState([]);
 
   return (
     <>
@@ -46,10 +47,19 @@ export default function Page() {
                 body: JSON.stringify({ isbn: userIsbnValue }),
               });
               const jsonData = await res.json();
-              const { msg, description } = jsonData;
-              console.log(msg);
-              setModalValue(description);
-              setOpenModal(true);
+              if (res.status >= 400) {
+                const { msg, description } = jsonData;
+                console.log(msg);
+                setModalValue(description);
+                setOpenModal(true);
+              } else if (res.status >= 200 && res.status < 300) {
+                const today = new Date();
+                const now = today.toLocaleDateString();
+                setAcceptedRequest((prev) => [
+                  { isbn: jsonData.isbn, time: jsonData.updated_at },
+                  ...prev,
+                ]);
+              }
             }
             try {
               dataFetch();
@@ -60,6 +70,9 @@ export default function Page() {
         >
           요청
         </button>
+        {acceptedRequest
+          ? acceptedRequest.map((item, idx) => <div key={idx}>{item}</div>)
+          : null}
       </div>
     </>
   );
