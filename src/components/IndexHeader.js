@@ -39,6 +39,11 @@ export default function IndexHeader() {
             request
           </a>
         </Link>
+        <Link href="/request/recent">
+          <a>
+            최근요청들
+          </a>
+        </Link>
       </div>
       <SiGithub />
     </div>
