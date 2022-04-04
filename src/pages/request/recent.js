@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
-// import useSWR from "swr";
-// styles
 import styles from "./recent.module.scss";
+
 export default function Page() {
-  // const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  // const { data, error } = useSWR("http://localhost:8000/requests", fetcher);
-
-  // if (error) return <div>server error...</div>;
-  // if (!data) return <div>loading...</div>;
-
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -24,21 +17,36 @@ export default function Page() {
       console.log(err);
     }
   }, []);
+
   return (
-    <>
-      <div className={styles.container}>
-        <h2>최근요청들</h2>
+    <div className={styles.container}>
+      <h3>최근요청목록</h3>
+      <div className={styles.rowContainer}>
+        <ul className={styles.row}>
+          <li className={`${styles.isbn} ${styles.cell}`}>isbn</li>
+          <li className={`${styles.created_at} ${styles.cell}`}>created</li>
+          <li className={`${styles.updated_at} ${styles.cell}`}>updated</li>
+          <li className={`${styles.status} ${styles.cell}`}>status</li>
+        </ul>
         {data
           ? data.map((item, idx) => (
-              <div key={idx} className={styles.item}>
-                <label>isbn: {item?.isbn}</label>
-                <label>created_at: {item?.created_at}</label>
-                <label>updated_at: {item?.updated_at}</label>
-                <label>status: {item?.status}</label>
-              </div>
+              <ul key={idx} className={styles.row}>
+                <li className={`${styles.isbn} ${styles.cell}`}>
+                  {item?.isbn}
+                </li>
+                <li className={`${styles.created_at} ${styles.cell}`}>
+                  {item?.created_at}
+                </li>
+                <li className={`${styles.updated_at} ${styles.cell}`}>
+                  {item?.updated_at}
+                </li>
+                <li className={`${styles.status} ${styles.cell}`}>
+                  {item?.status}
+                </li>
+              </ul>
             ))
           : null}
       </div>
-    </>
+    </div>
   );
 }
