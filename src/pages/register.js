@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./register.module.scss";
 
 export default function Page() {
   const [email, setEmail] = useState();
@@ -21,34 +22,37 @@ export default function Page() {
   };
   return (
     <>
-      <label>
-        <input
-          type="email"
-          name="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-      </label>
-      <label htmlFor="password">
-        <input
-          type="password"
-          name="password"
-          id=""
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </label>
-      <label htmlFor="password_confirm">
-        <input
-          type="password"
-          name="password_confirm"
-          id=""
-          onChange={(e) => setPasswordConfirm(e.target.value)}
-        />
-      </label>
-      <button onClick={onClick}>register</button>
+      <div className={styles.container}>
+        <label>
+          email
+          <input
+            type="email"
+            name="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </label>
+        <label htmlFor="password">
+          password
+          <input
+            type="password"
+            name="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </label>
+        <label htmlFor="password_confirm">
+          password confirm
+          <input
+            type="password"
+            name="password_confirm"
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+          />
+        </label>
+        <button onClick={onClick}>register</button>
+      </div>
     </>
   );
 }
