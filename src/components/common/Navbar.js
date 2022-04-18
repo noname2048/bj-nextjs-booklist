@@ -1,4 +1,4 @@
-import styles from "./NavBar.module.scss";
+import styles from "./Navbar.module.scss";
 
 export default function Navbar() {
   return (

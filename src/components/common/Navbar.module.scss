@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    flex-flow: nowrap column;
+    flex-flow: nowrap row;
     justify-content: space-between;
     align-items: center;
     background-color: #4280c9;
@@ -9,7 +9,7 @@
 
 .nav {
     display: flex;
-    flex-flow: nowrap column;
+    flex-flow: nowrap row;
     align-items: center;
 }
       
