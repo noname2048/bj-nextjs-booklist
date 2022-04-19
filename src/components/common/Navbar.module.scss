@@ -1,15 +1,40 @@
 .container {
-    display: flex;
-    flex-flow: nowrap row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4280c9;
-    color: white;
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4280c9;
+  color: white;
+  padding: 20px 40px;
+  margin: 0;
+
+  .logo {
+    font-weight: bold;
+  }
 }
 
-.nav {
-    display: flex;
-    flex-flow: nowrap row;
-    align-items: center;
+.ul {
+  list-style: none;
+  display: flex;
+  flex-flow: nowrap row;
+  .li {
+    display: block;
+    list-style: none;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: yellow;
+    }
+  }
 }
-      
+.nav {
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+}
+.auth {
+  font-weight: bold;
+}

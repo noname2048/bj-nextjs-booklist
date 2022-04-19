@@ -5,14 +5,14 @@ export default function Navbar() {
     <div className={styles.container}>
       <div className={styles.logo}>BookISBN</div>
       <nav className={styles.nav}>
-        <ul>
-          <li>search</li>
-          <li>
+        <ul className={styles.ul}>
+          <li className={styles.li}>search</li>
+          <li className={styles.li}>
             make
             <br />
             request
           </li>
-          <li>
+          <li className={styles.li}>
             recent
             <br />
             response
