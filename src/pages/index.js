@@ -5,6 +5,7 @@ import { MdOutlineLocatior } from "react-icons/md";
 import MainTwoSide from "../components/MainTwoSide";
 import NewBookRequest from "../components/NewBookRequest";
 import { GrTarget } from "react-icons/gr";
+import TitleSearch from "../components/search/TitleSearch";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
+        <TitleSearch />
         <IndexHeader />
         <MainTwoSide />
         <div className={styles["detail-search"]}>
