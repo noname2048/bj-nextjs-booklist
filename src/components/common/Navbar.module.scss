@@ -14,20 +14,31 @@
 }
 
 .ul {
-  list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   flex-flow: nowrap row;
+  min-width: 340px;
+  margin: 0 20px;
   .li {
-    display: block;
     list-style: none;
     text-align: center;
-    margin: auto;
-    padding: 15px;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 10px;
     cursor: pointer;
 
     &:hover {
-      background-color: yellow;
+      background-color: rgba(0, 0, 0, 0.2);
     }
+  }
+  .selected {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 .nav {
