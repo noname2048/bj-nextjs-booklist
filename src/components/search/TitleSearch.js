@@ -16,7 +16,6 @@ export default function TitleSearch({ children, props }) {
             if (event.key == "Enter" && titleRef.current.value !== "")
               router.push(`/titlesearch?title=${event.target.value}`);
           }}
-          ref={titleRef}
         />
         <BsSearch
           onClick={() => {
