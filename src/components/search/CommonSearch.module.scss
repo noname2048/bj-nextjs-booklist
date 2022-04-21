@@ -35,7 +35,7 @@
     transition: 0.01s;
     border: 3px solid transparent;
     &:focus-within {
-      border: white;
+      border: 3px solid white;
     }
   }
 }

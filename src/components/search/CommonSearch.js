@@ -2,7 +2,8 @@ import styles from "./CommonSearch.module.scss";
 import { useState } from "react";
 import { Router, useRouter } from "next/router";
 
-export default function CommonSearch({ children, props }) {
+export default function CommonSearch(props) {
+  const { key, verbose, svg: Comp } = props;
   const [inputValue, setInputValue] = useState("");
   const resetInputValue = () => {
     setInputValue("");
@@ -11,13 +12,11 @@ export default function CommonSearch({ children, props }) {
   const pushDetailPage = () => {
     router.push(`${title}search?${title}=${inputValue}`);
   };
-  // icon
-  const { svg: Comp } = children;
 
   return (
     <div className={styles.container}>
       <h2>
-        <span>{props.title}</span>으로 검색하기
+        <span>{props.verbose}</span>으로 검색하기
       </h2>
       <label>
         <input
