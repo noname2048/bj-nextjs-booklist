@@ -1,0 +1,41 @@
+.container {
+  // background-color will auto chosen
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  h2 span {
+    color: #3700b3;
+  }
+
+  input {
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: 0px;
+    text-align: center;
+    outline-style: none;
+  }
+
+  svg {
+    cursor: pointer;
+  }
+
+  label {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0 0.4rem;
+    border-radius: 999px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.01s;
+    border: 3px solid transparent;
+    &:focus-within {
+      border: white;
+    }
+  }
+}
