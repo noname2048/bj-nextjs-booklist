@@ -5,8 +5,34 @@
   justify-content: center;
   align-items: center;
 
-  h2 span {
-    color: #3700b3;
+  h2 {
+    position: relative;
+
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+
+    span {
+      color: #3700b3;
+    }
+  }
+  .anime {
+    position: absolute;
+    top: 0;
+    left: -0.5rem;
+
+    transition: 1s;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &:focus-within {
+    .anime {
+      opacity: 1;
+      left: -2rem;
+    }
   }
 
   input {

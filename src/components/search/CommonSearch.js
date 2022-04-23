@@ -1,9 +1,9 @@
 import styles from "./CommonSearch.module.scss";
 import { useState } from "react";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function CommonSearch(props) {
-  const { verbose, key, url, svg: Comp, backgroundColor } = props;
+  const { verbose, AnimeSvg, key, url, svg: Comp, backgroundColor } = props;
   const [inputValue, setInputValue] = useState("");
   const resetInputValue = () => {
     setInputValue("");
@@ -19,6 +19,9 @@ export default function CommonSearch(props) {
       style={{ backgroundColor: backgroundColor }}
     >
       <h2>
+        <div>
+          <AnimeSvg className={styles.anime} />
+        </div>
         <span>{verbose}</span>으로 검색하기
       </h2>
       <label>
@@ -28,7 +31,6 @@ export default function CommonSearch(props) {
             setInputValue(event.target.value);
           }}
           onKeyDown={(event) => {
-            console.log(event.key);
             if (event.key === "Enter" && inputValue !== "") {
               pushDetailPage();
             }

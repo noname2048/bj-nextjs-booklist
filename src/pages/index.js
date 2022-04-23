@@ -1,14 +1,10 @@
 import styles from "./index.module.scss";
 
 import Head from "next/head";
-import IndexHeader from "../components/IndexHeader";
-import { MdOutlineLocatior } from "react-icons/md";
-import MainTwoSide from "../components/MainTwoSide";
-import NewBookRequest from "../components/NewBookRequest";
-import { GrTarget } from "react-icons/gr";
-import TitleSearch from "../components/search/TitleSearch";
 import CommonSearch from "../components/search/CommonSearch";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs"; // search button
+import { GoTextSize } from "react-icons/go"; // title anime
+import { RiBarcodeFill } from "react-icons/ri"; //isbn anime
 
 export default function Home() {
   return (
@@ -21,6 +17,7 @@ export default function Home() {
       <div className={styles.container}>
         <CommonSearch
           verbose="제목"
+          AnimeSvg={GoTextSize}
           key="title"
           url="/titlesearch"
           svg={BsSearch}
@@ -28,6 +25,7 @@ export default function Home() {
         />
         <CommonSearch
           verbose="ISBN"
+          AnimeSvg={RiBarcodeFill}
           key="isbn"
           url="/isbnsearch"
           svg={BsSearch}
