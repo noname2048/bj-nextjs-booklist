@@ -1,4 +1,4 @@
-import styles from "./index.module.scss";
+import styles from "./search.module.scss";
 
 import Head from "next/head";
 import CommonSearch from "../components/search/CommonSearch";

@@ -1,18 +1,10 @@
-import styles from "../styles/Home.module.scss";
+import styles from "./isbnsearch.module.scss";
+import ISBNSearch from "../components/search/ISBNSearch";
 
 export default function Page() {
   return (
-    <div className={styles.container}>
-      <button>back</button>
-      <div className={styles.navigation}>
-        <span>isbn</span>
-        <input type="text" />
-        <span>button</span>
-      </div>
-      <div className={styles["list-container"]}>
-        <div className={styles.card}></div>
-      </div>
-      <footer></footer>
-    </div>
+    <>
+      <ISBNSearch />
+    </>
   );
 }

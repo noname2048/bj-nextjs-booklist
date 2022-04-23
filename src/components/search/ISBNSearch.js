@@ -1,28 +1,19 @@
 import { useRouter } from "next/router";
-import { BsSearch } from "react-icons/bs";
-import styles from "./ISBNSearch.module.scss";
+import { useState, useEffect } from "react";
 
-export default function TitleSearch({ children, props }) {
+export default function TitleSearch() {
   const router = useRouter();
-  return (
-    <div className={styles.container}>
-      <h2 className={styles.h2}>
-        <span className={styles.span}>ISBN</span>으로 검색하기
-      </h2>
-      <label>
-        <input
-          type="text"
-          onKeyPress={(event) => {
-            if (event.key == "Enter" && titleRef.current.value !== "")
-              router.push(`/isbnsearch?isbn=${event.target.value}`);
-          }}
-        />
-        <BsSearch
-          onClick={() => {
-            pushTitleSearch();
-          }}
-        />
-      </label>
-    </div>
-  );
+  const q = router.query["q"];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getJson = async () => {
+      const res = await fetch(`http://localhost:8000/books/search/isbn?q=${q}`);
+      const json = await res.json();
+      setData(json);
+    };
+    if (typeof q !== "undefined") getJson();
+  }, [q]);
+
+  return <>{JSON.stringify(data)}</>;
 }
