@@ -1,5 +1,7 @@
+import styles from "./TitleSearch.module.scss";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import BookCard from "../card/BookCard";
 
 export default function TitleSearch() {
   const router = useRouter();
@@ -17,5 +19,14 @@ export default function TitleSearch() {
     if (typeof q !== "undefined") getJson();
   }, [q]);
 
-  return <>{JSON.stringify(data)}</>;
+  if (!data) {
+    return <>검색결과가 없습니다.</>;
+  }
+  return (
+    <div className={styles.container}>
+      {data.map((book, index) => (
+        <BookCard key={index} book={book} />
+      ))}
+    </div>
+  );
 }
