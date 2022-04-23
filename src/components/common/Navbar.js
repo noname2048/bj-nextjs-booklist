@@ -5,20 +5,31 @@ import styles from "./Navbar.module.scss";
 export default function Navbar() {
   const router = useRouter();
   let highLightTarget = -1;
-  if (RegExp("^/search").test(router.asPath)) highLightTarget = 0;
-  else if (RegExp("^/makerequest").test(router.asPath)) highLightTarget = 1;
-  else if (RegExp("^/recentresponses").test(router.asPath)) highLightTarget = 2;
+  const highLightIndex = {
+    "^/": 0,
+    "^/search": 1,
+    "^/makerequest": 2,
+    "^/recentresponses": 3,
+  };
+  for (let k in highLightIndex) {
+    if (RegExp(k).test(router.asPath)) highLightTarget = highLightIndex[k];
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <span>|||</span> BookISBN
+        <span>|||</span>{" "}
+        <Link href="/">
+          <a className={highLightTarget === 0 ? styles.selected : ""}>
+            BookISBN
+          </a>
+        </Link>
       </div>
       <nav className={styles.nav}>
         <ul className={styles.ul}>
           <li
             className={`${styles.li} ${
-              highLightTarget === 0 ? styles.selected : ""
+              highLightTarget === 1 ? styles.selected : ""
             }`}
           >
             <Link href="/search">
@@ -27,7 +38,7 @@ export default function Navbar() {
           </li>
           <li
             className={`${styles.li} ${
-              highLightTarget === 1 ? styles.selected : ""
+              highLightTarget === 2 ? styles.selected : ""
             }`}
           >
             <Link href="login">
@@ -40,7 +51,7 @@ export default function Navbar() {
           </li>
           <li
             className={`${styles.li} ${
-              highLightTarget === 2 ? styles.selected : ""
+              highLightTarget === 3 ? styles.selected : ""
             }`}
           >
             <Link href="#">
