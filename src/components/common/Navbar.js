@@ -19,7 +19,7 @@ export default function Navbar() {
     <div className={styles.container}>
       <div className={styles.logo}>
         <span>|||</span>{" "}
-        <Link href="/">
+        <Link href="/search">
           <a className={highLightTarget === 0 ? styles.selected : ""}>
             BookISBN
           </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
               highLightTarget === 2 ? styles.selected : ""
             }`}
           >
-            <Link href="login">
+            <Link href="/login">
               <a>
                 make
                 <br />
@@ -54,7 +54,7 @@ export default function Navbar() {
               highLightTarget === 3 ? styles.selected : ""
             }`}
           >
-            <Link href="#">
+            <Link href="/recentrequest">
               <a>
                 recent
                 <br />

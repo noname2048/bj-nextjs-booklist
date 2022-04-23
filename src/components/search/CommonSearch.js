@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 export default function CommonSearch(props) {
-  const { verbose, AnimeSvg, key, url, svg: Comp, backgroundColor } = props;
+  const { verbose, AnimeSvg, url, svg: Comp, backgroundColor, Hint } = props;
   const [inputValue, setInputValue] = useState("");
   const resetInputValue = () => {
     setInputValue("");
   };
   const router = useRouter();
   const pushDetailPage = () => {
-    router.push(`${url}?${key}=${inputValue}`);
+    router.push(`${url}?q=${inputValue}`);
   };
 
   return (
@@ -19,9 +19,7 @@ export default function CommonSearch(props) {
       style={{ backgroundColor: backgroundColor }}
     >
       <h2>
-        <div>
-          <AnimeSvg className={styles.anime} />
-        </div>
+        <div>{AnimeSvg ? <AnimeSvg className={styles.anime} /> : ""}</div>
         <span>{verbose}</span>으로 검색하기
       </h2>
       <label>
@@ -41,6 +39,7 @@ export default function CommonSearch(props) {
             pushDetailPage();
           }}
         />
+        {Hint ? <Hint /> : ""}
       </label>
     </div>
   );
