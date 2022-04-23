@@ -6,6 +6,11 @@
   overflow: hidden;
   margin: 10px;
 
+  .image {
+    position: relative;
+    min-height: 200px;
+  }
+
   .fakeImage {
     height: 8rem;
     background-color: yellow;
@@ -23,7 +28,8 @@
       span {
         font-weight: bold;
         position: absolute;
-        transform: translate(-110%, 0);
+        transform: translate(-100%, 0);
+        left: -0.4rem;
       }
     }
   }
