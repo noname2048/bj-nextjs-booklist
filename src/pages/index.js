@@ -16,20 +16,18 @@ export default function Home() {
       </Head>
       <div className={styles.container}>
         <CommonSearch
-          verbose="제목"
-          AnimeSvg={GoTextSize}
-          key="title"
-          url="/titlesearch"
-          svg={BsSearch}
-          backgroundColor="#74959a"
-        />
-        <CommonSearch
           verbose="ISBN"
           AnimeSvg={RiBarcodeFill}
-          key="isbn"
           url="/isbnsearch"
           svg={BsSearch}
           backgroundColor="#98b4aa"
+        />
+        <CommonSearch
+          verbose="제목"
+          AnimeSvg={GoTextSize}
+          url="/titlesearch"
+          svg={BsSearch}
+          backgroundColor="#74959a"
         />
       </div>
     </>
