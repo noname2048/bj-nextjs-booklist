@@ -8,7 +8,7 @@ export default function Navbar() {
   const highLightIndex = {
     "^/": 0,
     "^/search": 1,
-    "^/makerequest": 2,
+    "^/newrequest": 2,
     "^/recentresponses": 3,
   };
   for (let k in highLightIndex) {
@@ -41,7 +41,7 @@ export default function Navbar() {
               highLightTarget === 2 ? styles.selected : ""
             }`}
           >
-            <Link href="/login">
+            <Link href="/newrequest">
               <a>
                 make
                 <br />
