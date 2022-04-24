@@ -1,8 +1,7 @@
+import styles from "./request.module.scss";
 import { useState, useRef } from "react";
 import IndexHeader from "../components/IndexHeader";
 import Modal from "../components/Modal";
-// styles
-import styles from "./request.module.scss";
 
 export default function Page() {
   const [userIsbnValue, setUserIsbnValue] = useState("9791165213190");
