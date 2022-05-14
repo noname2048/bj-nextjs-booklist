@@ -9,8 +9,10 @@ export default function Navbar() {
     "^/": 0,
     "^/search": 1,
     "^/newrequest": 2,
-    "^/recentresponses": 3,
+    "^/requests": 3,
   };
+  let temp = 0;
+
   for (let k in highLightIndex) {
     if (RegExp(k).test(router.asPath)) highLightTarget = highLightIndex[k];
   }
@@ -27,41 +29,37 @@ export default function Navbar() {
       </div>
       <nav className={styles.nav}>
         <ul className={styles.ul}>
-          <li
-            className={`${styles.li} ${
-              highLightTarget === 1 ? styles.selected : ""
-            }`}
-          >
-            <Link href="/search">
-              <a>search</a>
-            </Link>
-          </li>
-          <li
-            className={`${styles.li} ${
-              highLightTarget === 2 ? styles.selected : ""
-            }`}
-          >
-            <Link href="/newrequest">
-              <a>
-                make
-                <br />
-                request
-              </a>
-            </Link>
-          </li>
-          <li
-            className={`${styles.li} ${
-              highLightTarget === 3 ? styles.selected : ""
-            }`}
-          >
-            <Link href="/recentrequest">
-              <a>
-                recent
-                <br />
-                response
-              </a>
-            </Link>
-          </li>
+          <Link href="/search">
+            <a
+              className={`${styles.li} ${
+                highLightTarget === 1 ? styles.selected : ""
+              }`}
+            >
+              search
+            </a>
+          </Link>
+          <Link href="/newrequest">
+            <a
+              className={`${styles.li} ${
+                highLightTarget === 2 ? styles.selected : ""
+              }`}
+            >
+              make
+              <br />
+              request
+            </a>
+          </Link>
+          <Link href="/requests">
+            <a
+              className={`${styles.li} ${
+                highLightTarget === 3 ? styles.selected : ""
+              }`}
+            >
+              recent
+              <br />
+              response
+            </a>
+          </Link>
         </ul>
       </nav>
       <div className={styles.auth}>signup | login</div>

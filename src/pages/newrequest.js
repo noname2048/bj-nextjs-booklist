@@ -82,7 +82,7 @@ export default function Page() {
         </label>
         <label>
           <span>Update?</span>
-          <input type="checkbox" />
+          <input type="checkbox" className={styles.checkbox} />
         </label>
         <label>{status}</label>
       </form>
