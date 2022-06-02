@@ -5,13 +5,9 @@ import BookDetail from "../../components/book/BookDetail";
 const back = process.env.ORIGIN || "http://localhost:8000";
 
 export default function Books(props) {
-  const router = useRouter();
-  const param = router.query;
-
-  const { isbn } = props;
+  const [book, setBook] = useState(props.book);
+  const [isError, setIsError] = useState(props.book?.is_error);
   const [responseState, setResponseState] = useState();
-  const [book, setBook] = useState();
-  const [isError, setIsError] = useState(false);
 
   async function fetchBooks(isbn) {
     try {
@@ -40,8 +36,14 @@ export default function Books(props) {
 
 export async function getServerSideProps(context) {
   const { isbn } = context.query;
-  const res = await fetch(`${back}/book/${isbn}`);
-  const data = await res.json();
-  console.log(data);
-  return { props: { book: data } };
+  try {
+    const res = await fetch(`${back}/books/${isbn}`);
+    const data = await res.json();
+    if (res.status === 204) {
+      return { props: { book: data, type: "tempbook" } };
+    }
+    return { props: { book: data, type: "book" } };
+  } catch (error) {
+    return { props: { book: { isbn: isbn, is_error: true }, type: "error" } };
+  }
 }
