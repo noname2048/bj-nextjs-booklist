@@ -1,47 +1,42 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import BookDetail from "../../components/book/BookDetail";
+import TempbookDetail from "../../components/book/TempbookDetail";
 
 const back = process.env.ORIGIN || "http://localhost:8000";
 
 export default function Books(props) {
-  const router = useRouter();
-  const param = router.query;
+  const [bookdata, setBookdata] = useState(props.data);
 
-  const { isbn } = props;
-  const [responseState, setResponseState] = useState();
-  const [book, setBook] = useState();
-  const [isError, setIsError] = useState(false);
+  const fetchBook = async (isbn) => {
+    const res = await fetch(`${back}/books/${isbn}`);
+    const data = await res.json();
+    setBookdata(data);
+  };
 
-  async function fetchBooks(isbn) {
-    try {
-      const response = await fetch(back + `/book/${isbn}`);
-      if (response.ok) {
-        const json = response.json();
-        setBook(json);
-        setResponseState(response.status);
-        console.log(book);
-      }
-    } catch (err) {
-      setResponseState(400);
+  useEffect(() => {
+    if (bookdata?.timestamp) {
+      const timer = setTimeout(() => {
+        fetchBook(props.isbn);
+      }, 2000);
     }
-  }
+    return () => clearTimeout(timer);
+  }, [props.isbn, bookdata]);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     fetchBooks(isbn);
-  //   }, 3000);
-  //   return () => clearTimeout(timer);
-  // }, [responseState, isbn]);
-
-  console.log(props);
-  return <>HI{/* <BookDetail book={book} state={responseState} /> */}</>;
+  return (
+    <>
+      {bookdata?.timestamp ? (
+        <TempbookDetail book={bookdata} />
+      ) : (
+        <BookDetail book={bookdata} />
+      )}
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {
   const { isbn } = context.query;
-  const res = await fetch(`${back}/book/${isbn}`);
+  const res = await fetch(`${back}/books/${isbn}`);
   const data = await res.json();
-  console.log(data);
-  return { props: { book: data } };
+  return { props: { isbn: isbn, data: data } };
 }
